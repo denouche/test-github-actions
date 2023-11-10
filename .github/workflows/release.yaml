@@ -21,4 +21,4 @@ jobs:
 
 
       - name: test ternary
-        run: echo ${{github.ref || github.ref}}
+        run: echo ${{inputs.reference || github.ref}}
