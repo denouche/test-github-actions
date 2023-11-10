@@ -1,0 +1,24 @@
+name: release
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      reference:
+        type: string
+        description: "Git reference to release (ex: vX.Y.Z)"
+        required: true
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - name: debug github context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+
+
+      - name: test ternary
+        run: echo ${{github.ref || github.ref}}
