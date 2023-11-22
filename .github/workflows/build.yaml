@@ -1,0 +1,16 @@
+name: release
+
+on:
+  workflow_dispatch:
+    inputs:
+      reference:
+        type: string
+        description: "Git reference to deploy (ex: vX.Y.Z, main)"
+        required: true
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    uses: ./.github/workflows/release.yaml
+    with:
+      reference: ${{ inputs.reference }}
