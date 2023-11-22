@@ -1,0 +1,26 @@
+name: push
+on:
+  workflow_dispatch:
+    inputs:
+      reference:
+        type: string
+        description: "description"
+        required: true
+  release:
+    types: [ published ]
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - name: debug github context
+        run: |
+          ls -al
+          env
+          git rev-parse HEAD
+          TAG=$(git name-rev --tags --name-only $(git rev-parse HEAD))
+          BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
+          echo "tag: $TAG"
+          echo "BRANCH_NAME: $BRANCH_NAME"
+
+
