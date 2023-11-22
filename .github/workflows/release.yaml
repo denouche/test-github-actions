@@ -30,3 +30,8 @@ jobs:
           echo "BRANCH_NAME: $BRANCH_NAME"
 
 
+  push-to-gar:
+    uses: ./.github/workflows/push.yaml
+    with:
+      reference: ${{ github.ref_name }}
+
