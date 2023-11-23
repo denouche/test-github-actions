@@ -6,10 +6,11 @@ on:
 jobs:
   debug:
     runs-on: ubuntu-latest
-    if: github.ref_type == 'branch' && github.ref_name == 'ok'
+    #if: ${{ github.ref_type == 'branch' && github.ref_name == 'ok' }}
     steps:
       - name: debug github context
         run: |
           env
           echo ${{github.event.ref_type}}
           echo ${{github.event.ref}}
+          echo ${{github.event.ref_name}}
