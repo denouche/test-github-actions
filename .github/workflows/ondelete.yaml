@@ -14,3 +14,6 @@ jobs:
           echo ${{github.event.ref_type}}
           echo ${{github.event.ref}}
           echo ${{github.event.ref_name}}
+          echo ${{github.ref_type}}
+          echo ${{github.ref}}
+          echo ${{github.ref_name}}
