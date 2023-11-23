@@ -6,6 +6,7 @@ on:
 jobs:
   debug:
     runs-on: ubuntu-latest
+    if: github.ref_type == 'branch' && github.ref_name == 'ok'
     steps:
       - name: debug github context
         run: |
