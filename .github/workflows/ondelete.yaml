@@ -1,0 +1,14 @@
+name: delete
+
+on:
+  delete:
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - name: debug github context
+        run: |
+          env
+          echo ${{github.event.ref_type}}
+          echo ${{github.event.ref}}
